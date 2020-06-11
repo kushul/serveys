@@ -1,5 +1,8 @@
 <template>
-  <div class="container mt-8">
+  <div class="container mt-12">
+    <v-btn fab color="primary" class="mt-10 ml-10" top left absolute to="/">
+      <v-icon>arrow_back</v-icon>
+    </v-btn>
     <div class="test" v-for="(item, index) in items" :key="index">
       <div v-if="item.type == 'qcm'">
         <Barchart :label="item.label" :qcmResult="item.result" />
