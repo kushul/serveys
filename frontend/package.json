@@ -1,5 +1,6 @@
 {
-  "name": "frontend",
+  "name": "Survey App",
+  "author": "Kushul Soomaree",
   "version": "0.1.0",
   "private": true,
   "scripts": {

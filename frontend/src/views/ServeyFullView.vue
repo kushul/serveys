@@ -9,7 +9,7 @@
       </div>
       <div v-if="item.type == 'numeric'">{{ item.result }}</div>
       <div v-if="item.type == 'date'">
-        <div v-for="(date, index) in item.result" :key="index">{{ date | datify }}</div>
+        <dateTimeline :date="item.result" :title="item.label" />
       </div>
     </div>
   </div>
@@ -17,6 +17,7 @@
 
 <script>
 import Barchart from "../components/barChart";
+import dateTimeline from "../components/DateTimeline";
 export default {
   data() {
     return {
@@ -26,7 +27,8 @@ export default {
     };
   },
   components: {
-    Barchart
+    Barchart,
+    dateTimeline
   },
   mounted() {
     this.$http
@@ -56,20 +58,6 @@ export default {
     //   console.log(result);
     //   return result;
     // }
-  },
-  filters: {
-    datify(date) {
-      var options = {
-        weekday: "short",
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-        timeZone: "Indian/Mauritius"
-        // hour: "numeric",
-        // minute: "numeric"
-      };
-      return new Date(date).toLocaleDateString("en", options);
-    }
   }
 };
 </script>
