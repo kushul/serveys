@@ -1,22 +1,29 @@
 <template>
-  <div class="container mt-12">
+  <div class="container my-12">
     <v-btn fab color="primary" class="mt-10 ml-10" top left absolute to="/">
       <v-icon>arrow_back</v-icon>
     </v-btn>
-    <div class="test" v-for="(item, index) in items" :key="index">
-      <div v-if="item.type == 'qcm'">
-        <Barchart :label="item.label" :qcmResult="item.result" />
-      </div>
-      <div v-if="item.type == 'numeric'">{{ item.result }}</div>
-      <div v-if="item.type == 'date'">
-        <dateTimeline :date="item.result" :title="item.label" />
-      </div>
-    </div>
+    <v-card class="pa-6">
+      <v-card-item>
+        <div class="test" v-for="(item, index) in items" :key="index">
+          <div v-if="item.type == 'qcm'">
+            <Barchart :label="item.label" :qcmResult="item.result" />
+          </div>
+          <div v-if="item.type == 'numeric'">
+            <DoughnutChart />
+          </div>
+          <div v-if="item.type == 'date'">
+            <dateTimeline :date="item.result" :title="item.label" />
+          </div>
+        </div>
+      </v-card-item>
+    </v-card>
   </div>
 </template>
 
 <script>
 import Barchart from "../components/barChart";
+import DoughnutChart from "../components/doughnutChart";
 import dateTimeline from "../components/DateTimeline";
 export default {
   data() {
@@ -28,7 +35,8 @@ export default {
   },
   components: {
     Barchart,
-    dateTimeline
+    dateTimeline,
+    DoughnutChart
   },
   mounted() {
     this.$http
