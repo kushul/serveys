@@ -32,13 +32,16 @@ open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args
 - Favicon
 - page 404
 - vuejs best practices (shared components, router, store)
+- Page transition
 
 ## Notes
-- Aggregate data for each survey has been retrieved using axios & router
-- 
+- Aggregate data for each survey has been accessed using axios & router
+- QCM: ordered product and represent on a barchart
+- Numeric: doughnut chart
+- Date: sort date and represent on a timeline
 
 
-
+### END ###
 
 
 # frontend challenge

@@ -1,0 +1,206 @@
+{
+    "template": {
+        "type": "aut-num",
+        "description": "An object of the aut-num class is a database representation of an Autonomous System (AS), which is a group of IP networks operated by one or more network operators that has a single and clearly defined external routing policy.",
+        "source": {
+            "id": "AFRINIC"
+        },
+        "attributes": [
+            {
+                "name": "aut-num",
+                "requirement": "MANDATORY",
+                "cardinality": "SINGLE",
+                "keys": [
+                    "PRIMARY_KEY",
+                    "LOOKUP_KEY"
+                ],
+                "description": "The autonomous system number.",
+                "syntax": "An \"AS\" string followed by an integer in the range\nfrom 0 to 4294967295\n",
+            },
+            {
+                "name": "as-name",
+                "requirement": "MANDATORY",
+                "cardinality": "SINGLE",
+                "keys": [],
+                "description": "A descriptive name associated with an AS.",
+                "syntax": "Made up of letters, digits, the character underscore \"_\",\nand the character hyphen \"-\"; the first character of a name\nmust be a letter, and the last character of a name must be a\nletter or a digit.  The following words are reserved by\nRPSL, and they can not be used as names:\n\n any as-any rs-any peeras and or not atomic from to at\n action accept announce except refine networks into inbound\n outbound\n\nNames starting with certain prefixes are reserved for\ncertain object types.  Names starting with \"as-\" are\nreserved for as set names.  Names starting with \"rs-\" are\nreserved for route set names.  Names starting with \"rtrs-\"\nare reserved for router set names. Names starting with\n\"fltr-\" are reserved for filter set names. Names starting\nwith \"prng-\" are reserved for peering set names. Names\nstarting with \"irt-\" are reserved for irt names.\n",
+            },
+            {
+                "name": "descr",
+                "requirement": "MANDATORY",
+                "cardinality": "MULTIPLE",
+                "keys": [],
+                "description": "A short decription related to the object.",
+                "syntax": "A sequence of ASCII characters.\n"
+            },
+            {
+                "name": "status",
+                "requirement": "MANDATORY",
+                "cardinality": "SINGLE",
+                "keys": [],
+                "description": "Specifies the status of AS number represented in the aut-num.",
+                "syntax": "Status can have one of these values:\n\no ASSIGNED\n     This status is for ASNs issued to AFRINIC Resource members under the ASN\n     assignment policy, AFPUB-2004-ASN-001, or its successors\no ASSIGNED-ANYCAST\n     This status is for ASNs issued to AFRINIC Resource members under the\n     Anycast Assignment Policy , AFPUB-2012-V4-001, or its successors\no POLICY-RESERVED\n     This status is for ASNs issued under the policy AFPUB-2014-GEN-004, or\n     its successors\n"
+            },
+            {
+                "name": "member-of",
+                "requirement": "OPTIONAL",
+                "cardinality": "MULTIPLE",
+                "keys": [],
+                "description": "This attribute can be used in the route, aut-num and inet-rtr classes. The value of the \"member-of:\" attribute identifies a set object that this object wants to be a member of. This claim, however, should be acknowledged by a respective \"mbrs-by-ref:\" attribute in the referenced object.",
+                "syntax": "An as-set name is made up of letters, digits, the\ncharacter underscore \"_\", and the character hyphen \"-\"; it\nmust start with \"as-\", and the last character of a name must\nbe a letter or a digit.\n\nAn as-set name can also be hierarchical.  A hierarchical set\nname is a sequence of set names and AS numbers separated by\ncolons \":\".  At least one component of such a name must be\nan actual set name (i.e. start with \"as-\").  All the set\nname components of a hierarchical as-name have to be as-set\nnames.\n",
+            },
+            {
+                "name": "import",
+                "requirement": "OPTIONAL",
+                "cardinality": "MULTIPLE",
+                "keys": [],
+                "description": "Specifies import policy expression.",
+                "syntax": "[protocol <protocol-1>] [into <protocol-1>]\nfrom <peering-1> [action <action-1>]\n    .\n    .\n    .\nfrom <peering-N> [action <action-N>]\naccept <filter>\n"
+            },
+            {
+                "name": "mp-import",
+                "requirement": "OPTIONAL",
+                "cardinality": "MULTIPLE",
+                "keys": [],
+                "description": "Specifies multiprotocol import policy expression.",
+                "syntax": "[protocol <protocol-1>] [into <protocol-1>]\nafi <afi-list>\nfrom <peering-1> [action <action-1>]\n    .\n    .\n    .\nfrom <peering-N> [action <action-N>]\naccept (<filter>|<filter> except <importexpression>|\n        <filter> refine <importexpression>)\n"
+            },
+            {
+                "name": "export",
+                "requirement": "OPTIONAL",
+                "cardinality": "MULTIPLE",
+                "keys": [],
+                "description": "Specifies an export policy expression.",
+                "syntax": "[protocol <protocol-1>] [into <protocol-1>]\nto <peering-1> [action <action-1>]\n    .\n    .\n    .\nto <peering-N> [action <action-N>]\nannounce <filter>\n"
+            },
+            {
+                "name": "mp-export",
+                "requirement": "OPTIONAL",
+                "cardinality": "MULTIPLE",
+                "keys": [],
+                "description": "Specifies a multiprotocol export policy expression.",
+                "syntax": "[protocol <protocol-1>] [into <protocol-1>]\nafi <afi-list>\nto <peering-1> [action <action-1>]\n    .\n    .\n    .\nto <peering-N> [action <action-N>]\nannounce <filter>\n"
+            },
+            {
+                "name": "default",
+                "requirement": "OPTIONAL",
+                "cardinality": "MULTIPLE",
+                "keys": [],
+                "description": "Specifies default routing policies.",
+                "syntax": "to <peering> [action <action>] [networks <filter>]"
+            },
+            {
+                "name": "mp-default",
+                "requirement": "OPTIONAL",
+                "cardinality": "MULTIPLE",
+                "keys": [],
+                "description": "Specifies default multiprotocol routing policies.",
+                "syntax": "to <peering> [action <action>] [networks <filter>]\n"
+            },
+            {
+                "name": "remarks",
+                "requirement": "OPTIONAL",
+                "cardinality": "MULTIPLE",
+                "keys": [],
+                "description": "Contains remarks.",
+                "syntax": "A sequence of ASCII characters.\n",
+            },
+            {
+                "name": "org",
+                "requirement": "MANDATORY",
+                "cardinality": "SINGLE",
+                "keys": [
+                    "INVERSE_KEY"
+                ],
+                "description": "Points to an existing organisation object representing the entity that holds the resource.",
+                "syntax": "The 'ORG-' string followed by 2 to 4 characters, followed by up to 5 digits\nfollowed by a source specification.  The first digit must not be \"0\".\nSource specification starts with \"-\" followed by source name up to\n9-character length.\n",
+            },
+            {
+                "name": "admin-c",
+                "requirement": "MANDATORY",
+                "cardinality": "MULTIPLE",
+                "keys": [
+                    "INVERSE_KEY"
+                ],
+                "description": "References an on-site administrative contact.",
+                "syntax": "From 2 to 4 characters optionally followed by up to 5 digits\noptionally followed by a source specification.  The first digit\nmust not be \"0\".  Source specification starts with \"-\" followed\nby source name up to 9-character length.\n",
+            },
+            {
+                "name": "tech-c",
+                "requirement": "MANDATORY",
+                "cardinality": "MULTIPLE",
+                "keys": [
+                    "INVERSE_KEY"
+                ],
+                "description": "References a technical contact.",
+                "syntax": "From 2 to 4 characters optionally followed by up to 5 digits\noptionally followed by a source specification.  The first digit\nmust not be \"0\".  Source specification starts with \"-\" followed\nby source name up to 9-character length.\n",
+            },
+            {
+                "name": "notify",
+                "requirement": "OPTIONAL",
+                "cardinality": "MULTIPLE",
+                "keys": [
+                    "INVERSE_KEY"
+                ],
+                "description": "Specifies the e-mail address to which notifications of changes to an\nobject should be sent.\nThis attribute is filtered from the default whois output.",
+                "syntax": "An e-mail address as defined in RFC 2822.\n",
+            },
+            {
+                "name": "mnt-irt",
+                "requirement": "OPTIONAL",
+                "cardinality": "MULTIPLE",
+                "keys": [
+                    "INVERSE_KEY"
+                ],
+                "description": "May appear in an inetnum, inet6num or aut-num object. It points to an irt object representing a Computer Security Incident Response Team (CSIRT) that handles security incidents for the address space specified by the object.",
+                "syntax": "An irt name is made up of letters, digits, the character\nunderscore \"_\", and the character hyphen \"-\"; it must start\nwith \"irt-\", and the last character of a name must be a\nletter or a digit.\n"
+            },
+            {
+                "name": "mnt-lower",
+                "requirement": "OPTIONAL",
+                "cardinality": "MULTIPLE",
+                "keys": [
+                    "INVERSE_KEY"
+                ],
+                "description": "Specifies the identifier of a registered mntner object used for hierarchical authorisation. Protects creation of objects directly (one level) below in the hierarchy of an object type. The authentication method of this maintainer object will then be used upon creation of any object directly below the object that contains the \"mnt-lower:\" attribute.",
+                "syntax": "Made up of letters, digits, the character underscore \"_\",\nand the character hyphen \"-\"; the first character of a name\nmust be a letter, and the last character of a name must be a\nletter or a digit.  The following words are reserved by\nRPSL, and they can not be used as names:\n\n any as-any rs-any peeras and or not atomic from to at\n action accept announce except refine networks into inbound\n outbound\n\nNames starting with certain prefixes are reserved for\ncertain object types.  Names starting with \"as-\" are\nreserved for as set names.  Names starting with \"rs-\" are\nreserved for route set names.  Names starting with \"rtrs-\"\nare reserved for router set names. Names starting with\n\"fltr-\" are reserved for filter set names. Names starting\nwith \"prng-\" are reserved for peering set names. Names\nstarting with \"irt-\" are reserved for irt names.\n",
+            },
+            {
+                "name": "mnt-routes",
+                "requirement": "OPTIONAL",
+                "cardinality": "MULTIPLE",
+                "keys": [
+                    "INVERSE_KEY"
+                ],
+                "description": "This attribute references a maintainer object which is used in\ndetermining authorisation for the creation of route6 objects.\nThis entry is for the mnt-routes attribute of aut-num class.\nAfter the reference to the maintainer, an optional list of\nprefix ranges inside of curly braces or the keyword \"ANY\" may\nfollow. The default, when no additional set items are\nspecified, is \"ANY\" or all more specifics.",
+                "syntax": "<mnt-name> [ { list of (<ipv4-address>/<prefix> or <ipv6-address>/<prefix>) } | ANY ]\n"
+            },
+            {
+                "name": "mnt-by",
+                "requirement": "MANDATORY",
+                "cardinality": "MULTIPLE",
+                "keys": [
+                    "INVERSE_KEY"
+                ],
+                "description": "Specifies the identifier of a registered mntner object used for authorisation of operations performed with the object that contains this attribute.",
+                "syntax": "Made up of letters, digits, the character underscore \"_\",\nand the character hyphen \"-\"; the first character of a name\nmust be a letter, and the last character of a name must be a\nletter or a digit.  The following words are reserved by\nRPSL, and they can not be used as names:\n\n any as-any rs-any peeras and or not atomic from to at\n action accept announce except refine networks into inbound\n outbound\n\nNames starting with certain prefixes are reserved for\ncertain object types.  Names starting with \"as-\" are\nreserved for as set names.  Names starting with \"rs-\" are\nreserved for route set names.  Names starting with \"rtrs-\"\nare reserved for router set names. Names starting with\n\"fltr-\" are reserved for filter set names. Names starting\nwith \"prng-\" are reserved for peering set names. Names\nstarting with \"irt-\" are reserved for irt names.\n",
+            },
+            {
+                "name": "changed",
+                "requirement": "MANDATORY",
+                "cardinality": "MULTIPLE",
+                "keys": [],
+                "description": "Specifies who submitted the update, and when the object was updated. This attribute is filtered from the default whois output.",
+                "syntax": "An e-mail address as defined in RFC 2822, followed by a date\nin the format YYYYMMDD.\n"
+            },
+            {
+                "name": "source",
+                "requirement": "MANDATORY",
+                "cardinality": "SINGLE",
+                "keys": [],
+                "description": "Specifies the registry where the object is registered. Should be \"AFRINIC\" for the AFRINIC Database.",
+                "syntax": "Made up of letters, digits, the character underscore \"_\",\nand the character hyphen \"-\"; the first character of a\nregistry name must be a letter, and the last character of a\nregistry name must be a letter or a digit."
+            }
+        ]
+    }
+}

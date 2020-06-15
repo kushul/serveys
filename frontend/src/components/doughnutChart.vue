@@ -4,14 +4,15 @@ import { Doughnut } from "vue-chartjs";
 
 export default {
   extends: Doughnut,
+  props: ["name", "perc"],
   mounted() {
     this.renderChart(
       {
-        labels: ["VueJs", "EmberJs", "ReactJs", "AngularJs"],
+        labels: [this.name, "Other"],
         datasets: [
           {
-            backgroundColor: ["#41B883", "#E46651", "#00D8FF", "#DD1B16"],
-            data: [40, 20, 80, 10]
+            backgroundColor: ["#41B883", "#CCCCCC"],
+            data: [this.perc, 100 - this.perc]
           }
         ]
       },

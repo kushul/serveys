@@ -4,7 +4,7 @@
       <v-btn icon disabled>
         <v-icon>list</v-icon>
       </v-btn>
-      <v-toolbar-title class="ml-0 pl-0">List of Servey(s)</v-toolbar-title>
+      <v-toolbar-title class="ml-0 pl-0">List of Survey(s)</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-text-field
         style="padding-bottom:8px;"
@@ -19,7 +19,7 @@
     <v-data-table
       :search="search"
       :headers="headers"
-      :items="serveys"
+      :items="surveys"
       :items-per-page="5"
       class="elevation-1"
       :loading="loadingState"
@@ -45,12 +45,13 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
+import { mapGetters } from "vuex";
 
 export default {
   data() {
     return {
       search: "",
-      serveys: [],
+      // surveys: [],
       loadingState: false,
       headers: [
         {
@@ -69,19 +70,13 @@ export default {
       return this.a[i];
     }
   },
-  mounted() {
-    this.loadingState = true;
-    this.$http
-      .get(this.$url + "list.json", {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Headers": "Content-Type, Authorization"
-        }
-      })
-      .then(response => {
-        this.serveys = response.data;
-        this.loadingState = false;
-      });
+  created() {
+    this.$store.dispatch("survey/retrieveHydratedSurveys");
+  },
+  computed: {
+    ...mapGetters({
+      surveys: "survey/getSurveys"
+    })
   }
 };
 </script>
