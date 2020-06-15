@@ -57,10 +57,6 @@ export default {
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Headers": "Content-Type, Authorization"
-        },
-        proxy: {
-          host: "127.0.0.1",
-          port: 8080
         }
       })
       .then(response => {

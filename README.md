@@ -1,3 +1,46 @@
+# Please follow steps:
+
+## Setup
+# SETUP API
+
+cd surveys
+npm install
+node_modules/http-server/bin/http-server ./
+# API is now available on http://localhost:8080/api/XXXX.json
+
+# SETUP VUE
+cd surveys/frontend
+npm install
+npm run serve
+# VUE is now running on http://localhost:8081/ 
+
+
+## Important notes
+
+Run this command to get a private chrome browser due to CORS policy.
+
+open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
+
+## Key aspects
+- Used Vuetify 2+ to follow proper design (material design)
+- Used axios to make http request
+- Fully responsive (mobile friendly)
+- Darkmode version available (toggle in footer)
+- Added loading status
+- Used vue-chartjs for data visualization
+- Meta tag
+- Favicon
+- page 404
+- vuejs best practices (shared components, router, store)
+
+## Notes
+- Aggregate data for each survey has been retrieved using axios & router
+- 
+
+
+
+
+
 # frontend challenge
 
 ## Setup
