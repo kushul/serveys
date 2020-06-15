@@ -1,3 +1,4 @@
+
 <script>
 // CommitChart.js
 // import VueCharts from "vue-chartjs";
@@ -44,8 +45,8 @@ export default {
         labels: Object.keys(this.result),
         datasets: [
           {
-            label: this.label,
-            backgroundColor: "#f87979",
+            label: "Result for each product",
+            backgroundColor: "#FB8C00",
             data: Object.values(this.result)
           }
         ]

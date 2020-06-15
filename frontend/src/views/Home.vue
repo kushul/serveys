@@ -22,6 +22,8 @@
       :items="serveys"
       :items-per-page="5"
       class="elevation-1"
+      :loading="loadingState"
+      loading-text="Loading... Please wait"
     >
       <template v-slot:item.actions="{ item }">
         <v-btn
@@ -49,6 +51,7 @@ export default {
     return {
       search: "",
       serveys: [],
+      loadingState: false,
       headers: [
         {
           text: "Name",
@@ -67,6 +70,7 @@ export default {
     }
   },
   mounted() {
+    this.loadingState = true;
     this.$http
       .get("http://127.0.0.1:8080/api/list.json", {
         headers: {
@@ -80,6 +84,7 @@ export default {
       })
       .then(response => {
         this.serveys = response.data;
+        this.loadingState = false;
       });
   }
 };

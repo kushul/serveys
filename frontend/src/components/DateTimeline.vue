@@ -1,15 +1,17 @@
 <template>
-  <div>
+  <div class="date-timeline-wrapper">
+    <h1 class="product-title">{{ title }}</h1>
     <v-timeline align-top>
       <v-timeline-item
         v-for="(item, index) in sortDate"
         :key="index"
-        color="cyan darken-3"
+        color="lime darken-3"
         icon="event_note"
         fill-dot
+        dark
       >
         <template v-slot:opposite>
-          <span>{{ item | datify }}</span>
+          <span class="title-2 date-timeline">{{ item | datify }}</span>
         </template>
         <!-- <v-card class="elevation-2">
                 <v-card-title class="title">{{ date | datify }}</v-card-title>
@@ -30,7 +32,7 @@ export default {
     date: {
       type: Array
     },
-    label: {
+    title: {
       type: String
     }
   },
@@ -60,3 +62,14 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.date-timeline-wrapper {
+  .theme--dark.v-timeline::before {
+    background: rgba(0, 0, 0, 0.12);
+  }
+  .date-timeline {
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+</style>

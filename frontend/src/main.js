@@ -9,6 +9,9 @@ import axios from "axios";
 import NoData from "./components/shared/NoDataAlert.vue";
 Vue.component("no-data", NoData);
 
+import Loading from "./components/shared/Loading.vue";
+Vue.component("loading", Loading);
+
 Vue.config.productionTip = false
 
 Vue.prototype.$http = axios
