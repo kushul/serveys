@@ -72,7 +72,7 @@ export default {
   mounted() {
     this.loadingState = true;
     this.$http
-      .get("http://127.0.0.1:8080/api/list.json", {
+      .get(this.$url + "list.json", {
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Headers": "Content-Type, Authorization"

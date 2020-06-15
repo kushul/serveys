@@ -15,6 +15,7 @@ Vue.component("loading", Loading);
 Vue.config.productionTip = false
 
 Vue.prototype.$http = axios
+Vue.prototype.$url = "http://127.0.0.1:8080/api/"
 
 new Vue({
   router,
