@@ -30,13 +30,13 @@
           icon
           color="info"
           class="ml-0"
-          :to="{ name: 'serveyFullView', params: { id: item.code } }"
+          :to="{ name: 'surveyFullView', params: { id: item.code } }"
         >
           <v-icon>zoom_in</v-icon>
         </v-btn>
       </template>
       <template v-slot:no-data>
-        <no-data alertMessage="No Servey Found"></no-data>
+        <no-data alertMessage="No Survey Found"></no-data>
       </template>
     </v-data-table>
   </div>
@@ -51,7 +51,6 @@ export default {
   data() {
     return {
       search: "",
-      // surveys: [],
       loadingState: false,
       headers: [
         {
@@ -66,7 +65,7 @@ export default {
     };
   },
   methods: {
-    getServeyList(i) {
+    getSurveyList(i) {
       return this.a[i];
     }
   },

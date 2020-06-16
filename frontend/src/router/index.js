@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import ServeyFullView from "../views/ServeyFullView.vue"
+import SurveyFullView from "../views/SurveyFullView.vue"
 import Page404 from "../views/404.vue";
 
 Vue.use(VueRouter)
@@ -13,9 +13,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/servey/:id',
-    name: 'serveyFullView',
-    component: ServeyFullView
+    path: '/survey/:id',
+    name: 'surveyFullView',
+    component: SurveyFullView
   },
   {
     path: "/404",

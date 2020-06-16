@@ -35,10 +35,6 @@ export default {
   },
   mounted() {
     this.orderProductKey();
-    // Overwriting base render method with actual data.
-
-    // this.qcmResult.push;
-    // console.log(JSON.stringify(this.qcmResult));
 
     this.renderChart(
       {

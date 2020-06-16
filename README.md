@@ -38,14 +38,14 @@ google-chrome --disable-web-security
 - vuejs best practices (shared components, router, store)
 - Page transition
 
-## Notes
+## Functionality
 Survey Listing: 
 - Search input on the survey list to filter surveys by names and/or code.
 - Sort names or codes (ascending or descending)
 - Table Pagination (if we have more surveys)
 - Table no data slot
 - Table loading status
-- Action button for sinfle survey full view
+- Action button for single survey full view
 
 Single Survey:
 - Aggregate data for each survey has been accessed using axios & router

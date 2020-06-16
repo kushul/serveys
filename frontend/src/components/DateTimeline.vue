@@ -13,9 +13,6 @@
         <template v-slot:opposite>
           <span class="title-2 date-timeline">{{ item | datify }}</span>
         </template>
-        <!-- <v-card class="elevation-2">
-                <v-card-title class="title">{{ date | datify }}</v-card-title>
-        </v-card>-->
       </v-timeline-item>
     </v-timeline>
   </div>
