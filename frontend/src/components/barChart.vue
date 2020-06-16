@@ -46,7 +46,7 @@ export default {
         datasets: [
           {
             label: "Result for each product",
-            backgroundColor: "#FB8C00",
+            backgroundColor: "#66BB6A",
             data: Object.values(this.result)
           }
         ]

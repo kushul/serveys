@@ -11,7 +11,7 @@ export default {
         labels: [this.name, "Other"],
         datasets: [
           {
-            backgroundColor: ["#41B883", "#CCCCCC"],
+            backgroundColor: ["#43A047", "#BDBDBD"],
             data: [this.perc, 100 - this.perc]
           }
         ]

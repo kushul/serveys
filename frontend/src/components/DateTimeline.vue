@@ -5,7 +5,7 @@
       <v-timeline-item
         v-for="(item, index) in sortDate"
         :key="index"
-        color="lime darken-3"
+        color="teal darken-3"
         icon="event_note"
         fill-dot
         dark

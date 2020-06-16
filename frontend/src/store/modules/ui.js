@@ -1,5 +1,6 @@
 import Vue from "vue";
 
+
 const ui = {
     namespaced: true,
 
@@ -12,7 +13,7 @@ const ui = {
         },
     },
     actions: {
-        changeDarkmode: ({ commit }, payload) => {
+        changeDarkmode({ commit }, payload) {
             commit("setDarkmode", payload);
         },
     },

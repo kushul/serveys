@@ -54,7 +54,6 @@ const survey = {
                     });
                     return { ...survey, results: response.data }
                 }))
-                console.info(surveys)
                 commit("setSurveys", surveys);
             } catch (e) {
                 commit("setError", e);

@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :dark="theme">
     <v-content>
       <Header />
       <transition name="fade" mode="out-in">
@@ -23,16 +23,26 @@ export default {
     Header,
     Footer
   },
-
+  methods: {
+    setTheme() {
+      if (this.darkmode == true) {
+        return (this.$vuetify.theme.dark = true);
+      } else {
+        return (this.$vuetify.theme.dark = false);
+      }
+    }
+  },
   computed: {
     ...mapGetters({
       darkmode: "ui/getDarkmode"
-    })
+    }),
+    theme() {
+      return this.setTheme();
+    }
   },
-
-  data: () => ({
-    //
-  })
+  data() {
+    return {};
+  }
 };
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-8">
+  <div class="container mt-8 survey-table-wrapper">
     <v-toolbar dense color="transparent" class="blue-grey darken-3" dark flat>
       <v-btn icon disabled>
         <v-icon>list</v-icon>
@@ -80,3 +80,16 @@ export default {
   }
 };
 </script>
+
+
+<style lang="scss">
+@media (max-width: 600px) {
+  .survey-table-wrapper {
+    .v-btn__content {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+}
+</style>
