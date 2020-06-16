@@ -24,6 +24,7 @@ open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args
 ## Key aspects
 - Used Vuetify 2+ to follow proper design (material design)
 - Used axios to make http request
+- Centralized store for all the components in the application (vuex)
 - Fully responsive (mobile friendly)
 - Darkmode version available (toggle in footer)
 - Added loading status
@@ -37,7 +38,8 @@ open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args
 ## Notes
 - Aggregate data for each survey has been accessed using axios & router
 - QCM: ordered product and represent on a barchart
-- Numeric: doughnut chart
+- Numeric: Calculate percentage for each product compared to other products and represent on a doughnut chart 
+[(percProduct = (product / totalProducts) * 100), 100 - percProduct]
 - Date: sort date and represent on a timeline
 
 

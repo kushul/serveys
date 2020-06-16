@@ -18,11 +18,11 @@ const routes = [
     component: ServeyFullView
   },
   {
-    path: "*",
+    path: "/404",
     name: "not-found",
     component: Page404,
-
-  }
+  },
+  { path: '*', redirect: '/404' },
 ]
 
 const router = new VueRouter({

@@ -1,13 +1,12 @@
 <template>
   <div class="container my-12">
-    {{ error }}
     <v-card color="grey lighten-4" flat tile>
       <v-toolbar dense class="blue-grey darken-3" dark v-if="survey">
         <v-btn icon to="/">
           <v-icon>arrow_back</v-icon>
         </v-btn>
 
-        <v-toolbar-title class="pl-0">Survey {{ survey.name }} [{{ survey.code}}]</v-toolbar-title>
+        <v-toolbar-title class="pl-0">Survey of {{ survey.name }} [{{ survey.code}}]</v-toolbar-title>
       </v-toolbar>
       <template v-if="!survey">
         <loading />
@@ -62,15 +61,11 @@ export default {
       let survey = this.surveys.filter(
         survey => survey.code == this.$route.params.id
       );
-
       return survey ? survey[0] : {};
     },
     totalProducts() {
-      console.log(this.surveys);
       return this.surveys.reduce((total, survey) => {
-        console.log(survey);
         for (const result of survey.results) {
-          // console.log(survey.name, result.type, result.result);
           if (result.type == "numeric") {
             return parseInt(result.result, 10) + total;
           }
@@ -84,32 +79,17 @@ export default {
           products = parseInt(result.result, 10);
         }
       }
-      // console.log(products, this.totalProducts);
       return (products / this.totalProducts) * 100;
     }
   },
   watch: {
-    error(value) {
-      if (value) {
+    surveys(val) {
+      let survey = val.filter(survey => survey.code == this.$route.params.id);
+      if ((survey ? survey[0] : {}) == undefined) {
         this.$router.push({ name: "not-found" });
       }
     }
   }
-  // mounted() {
-  //   this.$http
-  //     .get(this.$url + this.id + ".json", {
-  //       headers: {
-  //         "Access-Control-Allow-Origin": "*",
-  //         "Access-Control-Allow-Headers": "Content-Type, Authorization"
-  //       }
-  //     })
-  //     .then(response => {
-  //       this.items = response.data;
-  //     })
-  //     .catch(() => {
-  //       this.$router.push({ name: "not-found" });
-  //     });
-  // },
 };
 </script>
 

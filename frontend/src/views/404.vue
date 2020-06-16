@@ -4,7 +4,7 @@
       <img src="../assets/404.svg" width="50%" />
 
       <div class="mt-8">
-        <v-btn depressed large color="primary" to="/">Return to home page</v-btn>
+        <v-btn depressed large color="primary" :to="{ name: 'Home'}">Return to home page</v-btn>
       </div>
     </div>
   </div>
